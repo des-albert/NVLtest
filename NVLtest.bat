@@ -1,0 +1,1 @@
+start javaw --enable-native-access=javafx.graphics --module-path "D:\Java\javafx-sdk-25.0.2\lib" --add-modules javafx.controls,javafx.fxml -jar D:\Data\Kotlin\NVLtest\build\libs\NVLtest-1.0-SNAPSHOT.jar

@@ -1,0 +1,24 @@
+.root {
+    -fx-background-color: rgba(174, 154, 119, 0.68);
+}
+
+.button{
+    -fx-text-fill: Yellow;
+    -fx-font-family: 'Ink Free';
+    -fx-font-size: 14;
+    -fx-text-alignment: "center";
+    -fx-background-color: "MediumSeaGreen"
+}
+
+.diff-cell {
+    -fx-background-color: rgba(189, 47, 73, 0.13);
+    -fx-text-fill: BLUE;
+    -fx-alignment: CENTER;
+}
+
+.match-cell {
+    -fx-background-color: rgba(119, 177, 85, 0.29);
+    -fx-text-fill: BLUE;
+    -fx-alignment: CENTER;
+}
+
