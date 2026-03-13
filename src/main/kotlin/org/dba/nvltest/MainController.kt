@@ -51,7 +51,7 @@ private val targetFileConfig = FileParseConfig(
 )
 
 
-private val NVL72_GB300 = "NVL72 GB300 Configurator v16.0.xlsx"
+private val NVL72_GB300 = "NVL72 GB300 Configurator v17.0.xlsx"
 private val NVL72_GB200 = "NVL72 GB200 Configurator v7.0.xlsx"
 private val NVL4_GB200 = "NVL4 GB200 Configurator v8.0.xlsx"
 private val NVL72_VR200 = "NVL72 VR200 Configurator v3.0.xlsx"
