@@ -1,4 +1,4 @@
-module org.dba.nvltest {
+module org.dba {
     requires javafx.controls;
     requires javafx.fxml;
     requires kotlin.stdlib;
