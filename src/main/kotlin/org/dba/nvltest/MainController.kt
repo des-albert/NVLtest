@@ -59,6 +59,7 @@ private val NVL72_VR200 = "NVL72 VR200 Configurator v6.0.xlsx"
 private val configRootPath = "C:\\Users\\albertd\\OneDrive - Hewlett Packard Enterprise\\HPE\\NVL\\"
 private var sourcePath = configRootPath + NVL72_GB300
 private var sourceFile = File(sourcePath)
+private val diffList = mutableListOf<DiffResult>()
 
 private val logger: Logger = LoggerFactory.getLogger("Excel Reader")
 private val dataFormatter = DataFormatter()
@@ -222,46 +223,42 @@ class MainController {
                 withContext(Dispatchers.JavaFx) {
                     val configValues = readValuesFromFile(sourceFile, sourceFileConfig)
                     labelStatus.text = "Source File Read"
-                    logger.info("File ${sourceFile} Read ")
+                    logger.info("File $sourceFile Read ")
 
                     val targetValues = readValuesFromFile(targetFile, targetFileConfig)
 
-                    if (configValues.size != targetValues.size) {
-                        labelStatus.text = "Different size"
-                        labelStatus.font = Font.font(36.0)
-                        labelStatus.textFill = javafx.scene.paint.Color.RED
-                    } else {
-                        labelStatus.text = "Same size"
-                        labelStatus.font = Font.font(24.0)
-                        labelStatus.textFill = javafx.scene.paint.Color.GREEN
-                    }
-
-                    logger.info("File ${targetFile} Read ")
+                    logger.info("File $targetFile Read ")
 
                     val mapTarget = targetValues.filter { it.sku != null }.associateBy { it.sku }
+                    val mapConfig = configValues.filter { it.sku != null }.associateBy { it.sku }
 
-                    val diffList = configValues.mapNotNull { source ->
-                        val target = mapTarget[source.sku]
-
-                        when {
-                            target == null -> DiffResult(
-                                source.sku,
-                                source.item, null,
-                                source.quantity, null,
-                                source.solID, null
+                    for ((sku, source) in mapConfig) {
+                        val target = mapTarget[sku]
+                        if (target == null) {
+                            diffList += DiffResult(
+                                source.sku,source.item, null,source.quantity, null,source.solID, null
                             )
-
-                            source != target -> DiffResult(
-                                source.sku,
-                                source.item, target.item,
-                                source.quantity, target.quantity,
-                                source.solID, target.solID
+                        } else if (source != target) {
+                            diffList += DiffResult(
+                                source.sku,source.item, target.item,source.quantity, target.quantity,source.solID, target.solID
                             )
-                            else -> null
                         }
                     }
+
+                    for ((sku, target) in mapTarget) {
+                        if (sku !in mapConfig) {
+                            diffList += DiffResult(
+                                target.sku,
+                                null, target.item, null, target.quantity, null, target.solID
+
+                            )
+                        }
+                    }
+
+
                     logger.info("Diffs Created ")
-                    if (diffList.size > 0 ) {
+
+                    if (diffList.isNotEmpty()) {
                         tableDiff.isVisible = true
                         tableDiff.items = FXCollections.observableArrayList(diffList)
                     } else {
