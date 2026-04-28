@@ -206,6 +206,7 @@ class MainController {
 
                     values.add(ValueList(itemValue, qtyValue, skuValue, solIDValue))
                 }
+                workbook.close()
             }
         } catch (e: IOException) {
             logger.error("Error reading file ${file.name}", e)
