@@ -219,6 +219,7 @@ class MainController {
     fun handleCompare() {
 
         tableDiff.isVisible = false
+        diffList.clear()
         controllerScope.launch {
             try {
                 withContext(Dispatchers.JavaFx) {
@@ -256,8 +257,7 @@ class MainController {
                         }
                     }
 
-
-                    logger.info("Diffs Created ")
+                    logger.info("Compare Complete")
 
                     if (diffList.isNotEmpty()) {
                         tableDiff.isVisible = true
