@@ -262,6 +262,10 @@ class MainController {
                     if (diffList.isNotEmpty()) {
                         tableDiff.isVisible = true
                         tableDiff.items = FXCollections.observableArrayList(diffList)
+                        labelStatus.text = "File Mismatch"
+                        labelStatus.font = Font.font(24.0)
+                        labelStatus.textFill = javafx.scene.paint.Color.RED
+
                     } else {
                         labelStatus.text = "File Match"
                         labelStatus.font = Font.font(24.0)
