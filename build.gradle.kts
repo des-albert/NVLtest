@@ -23,7 +23,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("org.dba.nvltest")
-    mainClass.set("org.dba.nvltest.MainApplication")
+    mainClass.set("org.dba.nvltest.MainApplicationKt")
 }
 kotlin {
     jvmToolchain(25)
@@ -35,6 +35,7 @@ javafx {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("org.apache.poi:poi-ooxml:5.5.1")
     implementation("org.apache.commons:commons-lang3:3.20.0")
     implementation("org.slf4j:slf4j-simple:2.0.17")
