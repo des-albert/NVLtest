@@ -7,9 +7,5 @@ module org.dba.nvltest {
     requires org.apache.poi.ooxml;
     requires kotlinx.coroutines.core;
     requires kotlinx.coroutines.javafx;
-    requires java.prefs;
 
-
-    opens org.dba.nvltest to javafx.fxml;
-    exports org.dba.nvltest;
 }
