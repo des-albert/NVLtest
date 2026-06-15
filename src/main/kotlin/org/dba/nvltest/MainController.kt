@@ -29,7 +29,7 @@ import kotlinx.coroutines.withContext
 
 
 private val prefs: Preferences = Preferences.userNodeForPackage(MainController::class.java)
-private val lastTargetDirKey = "lastTargetDir"
+private const val lastTargetDirKey = "lastTargetDir"
 private lateinit var targetFile: File
 
 private val sourceFileConfig = FileParseConfig(
@@ -51,12 +51,12 @@ private val targetFileConfig = FileParseConfig(
 )
 
 
-private val NVL72_GB300 = "NVL72 GB300 Configurator v19.0.xlsx"
-private val NVL72_GB200 = "NVL72 GB200 Configurator v8.0.xlsx"
-private val NVL4_GB200 = "NVL4 GB200 Configurator v10.0.xlsx"
-private val NVL72_VR200 = "NVL72 VR200 Configurator v9.0.xlsx"
+private const val NVL72_GB300 = "NVL72 GB300 Configurator v19.0.xlsx"
+private const val NVL72_GB200 = "NVL72 GB200 Configurator v8.0.xlsx"
+private const val NVL4_GB200 = "NVL4 GB200 Configurator v10.0.xlsx"
+private const val NVL72_VR200 = "NVL72 VR200 Configurator v9.0.xlsx"
 
-private val configRootPath = "C:\\Users\\albertd\\OneDrive - Hewlett Packard Enterprise\\HPE\\NVL\\"
+private const val configRootPath = "C:\\Users\\albertd\\OneDrive - Hewlett Packard Enterprise\\HPE\\NVL\\"
 private var sourcePath = configRootPath + NVL72_GB300
 private var sourceFile = File(sourcePath)
 private val diffList = mutableListOf<DiffResult>()
