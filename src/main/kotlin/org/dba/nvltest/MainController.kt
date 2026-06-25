@@ -51,9 +51,9 @@ private val targetFileConfig = FileParseConfig(
 )
 
 
-private const val NVL72_GB300 = "NVL72 GB300 Configurator v19.0.xlsx"
+private const val NVL72_GB300 = "NVL72 GB300 Configurator v20.0.xlsx"
 private const val NVL72_GB200 = "NVL72 GB200 Configurator v8.0.xlsx"
-private const val NVL4_GB200 = "NVL4 GB200 Configurator v10.0.xlsx"
+private const val NVL4_GB200 = "NVL4 GB200 Configurator v11.0.xlsx"
 private const val NVL72_VR200 = "NVL72 VR200 Configurator v9.0.xlsx"
 
 private const val configRootPath = "C:\\Users\\albertd\\OneDrive - Hewlett Packard Enterprise\\HPE\\NVL\\"
